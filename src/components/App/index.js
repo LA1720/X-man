@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from '../Header';
 import Landing from '../Landing';
 import Footer from '../Footer';
@@ -10,15 +11,18 @@ import '../../App.css';
 
 function App() {
   return (
-      <div>
+      <Router>
         <Header />
-        <Welcome />
-        <Landing />
-        <Login />
-        <Signup />
-        <ErrorPage />
+      <switch>
+      <Route exact path="/" component={Landing} />
+      <Route  path="/welcome" component={Welcome} />
+      <Route  path="/login" component={Login} />
+      <Route  path="/signup" component={Signup} />
+      <Route  component={ErrorPage} />
+      </switch>
+
         <Footer />
-      </div>
+      </Router>
   );
 }
 
